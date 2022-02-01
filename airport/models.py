@@ -1,10 +1,21 @@
 from django.db import models
 
+
+class airport(models.Model):
+    code=models.CharField(max_length=44)
+    name=models.CharField(max_length=50)
+
+    def __str__(self):
+        return f"{self.code}-{self.name}"
+
+
+
 # Create your models here.
 class flight(models.Model):
-    source=models.CharField(max_length=50)
-    destination=models.CharField(max_length=50)
+    source=models.ForeignKey(airport,on_delete=models.CASCADE,related_name='depature')
+    destination=models.ForeignKey(airport,on_delete=models.CASCADE,related_name="arrival")
     duration=models.IntegerField()
+    models.OneToOneField
 
     def __str__(self):
         return f"{self.source} -> {self.destination}"
