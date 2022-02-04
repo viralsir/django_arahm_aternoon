@@ -16,3 +16,13 @@ class ListCourseView(ListView):
 #model_list.html
 #courses_list.html
 #ObjectList=courses.objects.all()
+
+class UpdateCourseView(UpdateView):
+        model = courses
+        fields = '__all__'
+
+class DeleteCourseView(DeleteView):
+        model = courses
+        success_url = "/course/view"
+
+#model_confirm_delete.html

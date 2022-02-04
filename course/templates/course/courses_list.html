@@ -37,6 +37,7 @@
                                             <th>Description</th>
                                             <th>Durations</th>
                                             <th>Fees</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -45,6 +46,7 @@
                                             <th>Description</th>
                                             <th>Durations</th>
                                             <th>Fees</th>
+                                            <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
@@ -54,6 +56,16 @@
                                             <td>{{ course.descriptions }}</td>
                                             <td>{{ course.duration}}</td>
                                             <td>{{ course.fees }}</td>
+                                            <td>
+                                                <a href="{% url 'update-course' course.id %}">
+                                                  <i class="material-icons">mode_edit</i>
+                                                </a>
+                                                <a href="{% url 'delete-course' course.id %}">
+                                                    <i class="material-icons">delete</i>
+
+                                                </a>
+
+                                            </td>
                                             </tr>
                                         {% endfor %}
                                     </tbody>
