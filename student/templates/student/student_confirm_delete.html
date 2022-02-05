@@ -1,0 +1,35 @@
+{% extends "users/layout.html" %}
+{% load static %}
+{% load crispy_forms_field %}
+
+{% block body %}
+        <div>
+            <form method="post">
+                {% csrf_token %}
+                <h2 style="color: red;text-align: center">Are you sure you want to delete this student ?? </h2>
+
+                <ul style="text-align: center;font-weight: bold;">
+                    <li> First Name : {{ object.first_name}}</li>
+                    <li> Middle Name : {{ object.middle_name}}</li>
+                    <li> Last Name : {{ object.last_name}}</li>
+                    <li> Father's Name : {{ object.father_name}}</li>
+                    <li> Father's Middle Name : {{ object.father_middle_name}}</li>
+                    <li> Father's Last Name : {{ object.father_last_name}}</li>
+                    <li> Mother's Name : {{ object.mother_name}}</li>
+                    <li> Mother's Middle Name : {{ object.mother_middle_name}}</li>
+                    <li> Mother's Last Name : {{ object.mother_last_name}}</li>
+                    <li> Age : {{ object.age}}</li>
+                    <li> Address : {{ object.phno_home }}</li>
+                    <li> Phone Number (HOME) : {{ object.phno_home2 }}</li>
+                    <li> Phone Number (HOME 2) : {{ object.phno_home2 }}</li>
+                    <li> Phone Number (OFFICE) : {{ object.phno_office }}</li>
+
+                </ul> <br/>
+
+                <input type="submit" value="Delete" class="btn btn-outline-danger">
+                <a href="{% url 'viewstudent' %}" class="btn btn-outline-success">Cancel</a>
+            </form>
+        </div>
+
+{% endblock %}
+

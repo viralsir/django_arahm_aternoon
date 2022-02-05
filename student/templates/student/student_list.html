@@ -1,0 +1,110 @@
+{% extends "users/layout.html" %}
+{% load static %}
+{% load crispy_forms_field %}
+{% block extra_cs %}
+    <!-- JQuery DataTable Css -->
+    <link href="{% static 'plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css'%}" rel="stylesheet">
+
+{% endblock %}
+{% block body %}
+     <!-- Basic Examples -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                Student List : -
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>First Name</th>
+                                            <th>Middle Name</th>
+                                            <th>Last Name</th>
+                                            <th>Father's Name</th>
+                                            <th>Father's Middle Name</th>
+                                            <th>Father's Last Name</th>
+                                            <th>Mother's Name</th>
+                                            <th>Mother's Middle Name</th>
+                                            <th>Mother's Last Name</th>
+                                            <th>Age</th>
+                                            <th>Address</th>
+                                            <th>Phone Number (HOME)</th>
+                                            <th>Phone Number (HOME 2)</th>
+                                            <th>Phone Number (OFFICE)</th>
+
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        {% for student in student_list %}
+                                            <tr>
+                                            <td>{{ student.first_name}}</td>
+                                            <td>{{ student.middle_name}}</td>
+                                            <td>{{ student.last_name}}</td>
+                                            <td>{{ student.father_name}}</td>
+                                            <td>{{ student.father_middle_name}}</td>
+                                            <td>{{ student.father_last_name}}</td>
+                                            <td>{{ student.mother_name}}</td>
+                                            <td>{{ student.mother_middle_name}}</td>
+                                            <td>{{ student.mother_last_name}}</td>
+                                            <td>{{ student.age}}</td>
+                                            <td>{{ student.address}}</td>
+                                            <td>{{ student.phno_home}}</td>
+                                            <td>{{ student.phno_home2}}</td>
+                                            <td>{{ student.phno_office}}</td>
+
+
+
+                                            <td>
+                                                <a href="{% url 'editstudent' student.id %}">
+                                                  <i class="material-icons">edit</i>
+                                                </a>
+                                                <a href="{% url 'deletestudent' student.id %}">
+                                                    <i class="material-icons">delete</i>
+                                                </a>
+
+                                            </td>
+
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Basic Examples -->
+
+{% endblock %}
+
+{% block extra_js %}
+ <!-- Jquery DataTable Plugin Js -->
+    <script src="{% static 'plugins/jquery-datatable/jquery.dataTables.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.flash.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/jszip.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/pdfmake.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/vfs_fonts.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.html5.min.js'%}"></script>
+    <script src="{% static 'plugins/jquery-datatable/extensions/export/buttons.print.min.js'%}"></script>
+
+    <script src="{% static 'js/pages/tables/jquery-datatable.js'%}"></script>
+{% endblock %}

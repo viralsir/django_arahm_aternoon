@@ -23,6 +23,8 @@ urlpatterns = [
     path("home/",home,name="home"),
     path("",LoginView.as_view(template_name="users/sign-in.html"),name="login"),
     path("logout/",LogoutView.as_view(template_name="users/sign-out.html"),name="logout"),
-    path("course/",include("course.urls"))
+    path("course/",include("course.urls")),
+    path("student/",include("student.urls")),
+    path("addmission/",include("addmission.urls"))
 
 ]

@@ -321,7 +321,36 @@
 
                         </ul>
                     </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">home</i>
+                            <span>Student</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="{% url 'newstudent' %}">New</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'viewstudent' %}">View</a>
+                            </li>
 
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">home</i>
+                            <span>Addmission</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li>
+                                <a href="{% url 'new-addmission' %}">New</a>
+                            </li>
+                            <li>
+                                <a href="{% url 'view-addmission' %}">View</a>
+                            </li>
+
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <!-- #Menu -->

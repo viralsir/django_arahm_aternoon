@@ -35,6 +35,8 @@ INSTALLED_APPS = [
     'airport',
     'course',
     'crispy_forms',
+    'student',
+    'addmission',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

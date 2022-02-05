@@ -1,0 +1,83 @@
+{% extends "users/layout.html" %}
+{% load static %}
+{% load crispy_forms_field %}
+{% block extra_cs %}
+     <!-- Bootstrap Select Css -->
+    <link href="{% static 'plugins/bootstrap-select/css/bootstrap-select.css'%}" rel="stylesheet" />
+     <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="{% static 'plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css'%}" rel="stylesheet" />
+
+{% endblock %}
+{% block body %}
+<!-- Basic Validation -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>New Addmission Form </h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="javascript:void(0);">Action</a></li>
+                                        <li><a href="javascript:void(0);">Another action</a></li>
+                                        <li><a href="javascript:void(0);">Something else here</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <form id="form_validation" method="POST">
+                                {% csrf_token %}
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        {% crispy_field form.date 'class' 'form-control'  %}
+                                        <label class="form-label">Date</label>
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <label class="form-label">Student</label>
+                                        {% crispy_field form.student 'class' 'form-control selectpicker'  %}
+
+                                    </div>
+                                </div>
+                                <div class="form-group form-float">
+                                    <div class="form-line">
+                                        <label class="form-label">Course</label>
+                                        {% crispy_field form.course  'class' 'form-control selectpicker' %}
+
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-primary waves-effect" type="submit">Save</button>
+                                <button class="btn btn-primary waves-effect" type="reset">Clear</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Basic Validation -->
+
+{% endblock %}
+
+{% block extra_js %}
+    <!-- Select Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-select/js/bootstrap-select.js'%}"></script>
+    <!-- Moment Plugin Js -->
+    <script src="{% static 'plugins/momentjs/moment.js'%}"></script>
+    <!-- Bootstrap Material Datetime Picker Plugin Js -->
+    <script src="{% static 'plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js' %}"></script>
+
+    <script>
+    $(function () {
+         $('#id_date').bootstrapMaterialDatePicker({
+        format: 'YYYY-M-DD',
+        clearButton: true,
+        weekStart: 1
+    });
+    })
+    </script>
+{% endblock %}
